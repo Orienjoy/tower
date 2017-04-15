@@ -94,6 +94,13 @@
       <version>${org.mybatis.spring.version}</version>
     </dependency>
 
+    <!--数据库连接池-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.14</version>
+    </dependency>
+
     <!--jdbc-->
     <dependency>
       <groupId>mysql</groupId>
@@ -102,6 +109,14 @@
       <scope>runtime</scope>
     </dependency>
 
+    <!-- commons -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+
+    <!-- junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

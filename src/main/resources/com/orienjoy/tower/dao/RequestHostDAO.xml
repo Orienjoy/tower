@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="RequestHostMapper">
-    <resultMap id="BaseResultMap" type="com.orienjoy.tower.bean.RequestHost">
+<mapper namespace="com.orienjoy.tower.dao.RequestHostDAO">
+    <resultMap id="BaseResultMap" type="com.orienjoy.tower.domain.RequestHost">
         <id column="id" property="id"/>
         <result column="host" property="host"/>
         <result column="project" property="project"/>
         <result column="description" property="description"/>
-        <result column="create_staff" property="createStaff"/>
+        <result column="create_id" property="createId"/>
         <result column="create_time" property="createTime"/>
     </resultMap>
 
-    <sql id="BeanProperty">
+    <sql id="Base_Columan_List">
         id, project, description, create_staff, create_time
     </sql>
 
@@ -19,10 +19,10 @@
         values (#{project}, #{description}, #{createStaff}, #{createTime})
     </insert>
 
-    <select id="find" resultMap="BaseResultMap">
-        select <include refid="BeanProperty"/>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select <include refid="Base_Columan_List"/>
         from request_host
-        where id = #{id}
+        where id = #{id, jdbcType=BIGINT}
     </select>
 
     <select id="findByIds" resultMap="BaseResultMap">
