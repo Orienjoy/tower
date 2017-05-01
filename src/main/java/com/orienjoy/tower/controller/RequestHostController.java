@@ -23,7 +23,7 @@ public class RequestHostController {
     private static Logger logger = LoggerFactory.getLogger(RequestHostService.class);
 
     // 拼接 env-host/api
-    @RequestMapping(value = "/public/url/{requestId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/public/{env}/{requestId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public JSONObject getRequestHostById(HttpServletResponse response, @PathVariable("requestHostId") Long requestHostId){
         logger.info("Request URL = {} ", requestHostId);
