@@ -19,7 +19,7 @@
         values (#{project}, #{description}, #{createStaff}, #{createTime})
     </insert>
 
-    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    <select id="selectByHostId" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select <include refid="Base_Columan_List"/>
         from request_host
         where id = #{id, jdbcType=BIGINT}
