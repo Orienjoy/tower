@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS `leads`;
+CREATE TABLE `leads` (
+  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  'env' VARCHAR(50) NOT NULL COMMENT '环境',
+  'host_inner_ip'  VARCHAR(50) NOT NULL COMMENT '内网 HOST IP',
+  'host_outer_ip'  VARCHAR(50) NOT NULL COMMENT '外网 HOST IP',
+  'mysql_inner_ip' VARCHAR(50) NOT NULL COMMENT '内网 MYSQL IP',
+  'mysql_outer_ip' VARCHAR(50) NOT NULL COMMENT '外网 MYSQL IP',
+  'mysql_port'     VARCHAR(50) NOT NULL COMMENT '外网 MYSQL IP',
+  PRIMARY KEY (`id`)
+)DEFAULT CHARSET=utf8;
