@@ -34,4 +34,4 @@ CREATE TABLE IF NOT EXISTS `headers` (
   `authorization` VARCHAR(31) COMMENT '存放staff id，针对CRM系统',
   `cookie`        VARCHAR(255) COMMENT 'cookie信息，WWW | H5 访问',
   `content_type`  VARCHAR(31) NOT NULL DEFAULT ' ' COMMENT 'application/json |text 等'
-)DEFAULT CHARSET=utf8;
+)DEFAULT CHARSET=utf8

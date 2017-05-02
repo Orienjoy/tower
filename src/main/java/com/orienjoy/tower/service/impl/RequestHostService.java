@@ -24,7 +24,7 @@ public class RequestHostService implements IRequestHostService {
     @Override
     public RequestHost getRequestHostById(Long id) {
         logger.info("getRequestHostById requestHostId = {}",id);
-        return requestHostDao.selectById(id);
+        return requestHostDao.selectByHostId(id);
     }
 
 }

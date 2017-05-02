@@ -7,6 +7,6 @@ import com.orienjoy.tower.domain.RequestHost;
  */
 public interface RequestHostDAO {
 
-    RequestHost selectById(Long id);
+    RequestHost selectByHostId(Long id);
 
 }
