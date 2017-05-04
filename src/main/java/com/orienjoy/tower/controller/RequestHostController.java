@@ -1,6 +1,5 @@
 package com.orienjoy.tower.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.orienjoy.tower.service.IRequestHostService;
 import com.orienjoy.tower.service.impl.RequestHostService;
@@ -22,8 +21,8 @@ public class RequestHostController {
 
     private static Logger logger = LoggerFactory.getLogger(RequestHostService.class);
 
-    // 拼接 env-host/api
-    @RequestMapping(value = "/public/{env}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    // 读取env参数
+    @RequestMapping(value = "/host/{host}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public JSONObject getRequestHostById(HttpServletResponse response, @PathVariable("requestHostId") Long requestHostId){
         logger.info("Request URL = {} ", requestHostId);

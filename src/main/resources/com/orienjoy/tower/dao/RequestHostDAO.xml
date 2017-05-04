@@ -11,21 +11,21 @@
     </resultMap>
 
     <sql id="Base_Columan_List">
-        id, project, description, create_staff, create_time
+        id, host, project, description, create_staff, create_time
     </sql>
 
     <insert id="create" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
-        insert into request_host (project, description, create_staff, create_time)
-        values (#{project}, #{description}, #{createStaff}, #{createTime})
+        insert into request_host (host, project, description, create_staff, create_time)
+        values (#{host}, #{project}, #{description}, #{createStaff}, #{createTime})
     </insert>
 
-    <select id="selectByHostId" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    <select id="selectHostById" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select <include refid="Base_Columan_List"/>
         from request_host
         where id = #{id, jdbcType=BIGINT}
     </select>
 
-    <select id="findByIds" resultMap="BaseResultMap">
+    <select id="findByHostIds" resultMap="BaseResultMap">
         select <include refid="BeanProperty"/>
         from request_host
         where id in
