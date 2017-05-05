@@ -1,5 +1,6 @@
 package com.orienjoy.tower.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.orienjoy.tower.dao.EnvDAO;
 import com.orienjoy.tower.domain.Env;
 import com.orienjoy.tower.service.IEnvService;
@@ -20,8 +21,11 @@ public class EnvService implements IEnvService {
     private EnvDAO envDAO;
 
     @Override
-    public Env getEnvById(Long id) {
-        logger.info("getEnvById requestHostId = {}", id);
-        return envDAO.selectEnvById(id);
+    public JSONObject getEnvById(Long envId) {
+        logger.info("getEnvById requestHostId = {}", envId);
+        JSONObject json = new JSONObject();
+        Env env = envDAO.selectEnvById(envId);
+
+        return json;
     }
 }

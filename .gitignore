@@ -38,3 +38,4 @@ src/main/resources/application.properties
 # *.tar
 # *.tar.gz
 src/main/webapp/WEB-INF/classes
+out/
