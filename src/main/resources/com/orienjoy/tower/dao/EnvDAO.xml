@@ -11,32 +11,22 @@
         <result column="mysql_port" property="mysqlPort"/>
     </resultMap>
 
-    <sql id="Base_Columan_List">
+    <sql id="Base_Column_List">
         id, env, host_inner_ip, host_outer_ip, mysql_inner_ip, mysql_outer_ip, mysql_port
     </sql>
+
+    <!-- <include refid="Base_Columan_List"/> -->
+    <select id="selectEnvById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from env
+        where id = #{envId,jdbcType=BIGINT}
+    </select>
 
     <insert id="create" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into env (env, host_inner_ip, host_outer_ip, mysql_inner_ip, mysql_outer_ip, mysql_port)
         values (#{env}, #{hostInnerIp}, #{hostOuterIp}, #{mysqlInnerIp}, #{mysqlOuterIp}, #{mysqlPort})
     </insert>
 
-    <select id="selectEnvById" resultMap="BaseResultMap" parameterType="java.lang.Long">
-        select <include refid="Base_Columan_List"/>
-        from env
-        where id = #{id, jdbcType=BIGINT}
-    </select>
 
-    <select id="findByIds" resultMap="BaseResultMap">
-        select <include refid="BeanProperty"/>
-        from env
-        where id in
-        <foreach collection="list" item="id" separator="," open="(" close=")">
-            #{id}
-        </foreach>
-    </select>
-
-    <select id="findAll" resultMap="BaseResultMap">
-        select <include refid="BeanProperty"/>
-        from env
-    </select>
 </mapper>
