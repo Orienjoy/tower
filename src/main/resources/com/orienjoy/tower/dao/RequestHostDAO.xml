@@ -10,32 +10,19 @@
         <result column="create_time" property="createTime"/>
     </resultMap>
 
-    <sql id="Base_Columan_List">
+    <sql id="Base_Column_List">
         id, host, project, description, create_staff, create_time
     </sql>
+
+    <select id="selectHostById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select <include refid="Base_Column_List"/>
+        from request_host
+        where id = #{id, jdbcType=BIGINT}
+    </select>
 
     <insert id="create" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into request_host (host, project, description, create_staff, create_time)
         values (#{host}, #{project}, #{description}, #{createStaff}, #{createTime})
     </insert>
 
-    <select id="selectHostById" resultMap="BaseResultMap" parameterType="java.lang.Long">
-        select <include refid="Base_Columan_List"/>
-        from request_host
-        where id = #{id, jdbcType=BIGINT}
-    </select>
-
-    <select id="findByHostIds" resultMap="BaseResultMap">
-        select <include refid="BeanProperty"/>
-        from request_host
-        where id in
-        <foreach collection="list" item="id" separator="," open="(" close=")">
-            #{id}
-        </foreach>
-    </select>
-
-    <select id="findAll" resultMap="BaseResultMap">
-        select <include refid="BeanProperty"/>
-        from request_host
-    </select>
 </mapper>
