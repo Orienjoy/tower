@@ -1,6 +1,7 @@
 package com.orienjoy.tower.service.impl;
 
 import com.orienjoy.tower.dao.EnvDAO;
+import com.orienjoy.tower.domain.Env;
 import com.orienjoy.tower.dto.EnvDTO;
 import com.orienjoy.tower.service.IEnvService;
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,8 +23,16 @@ public class EnvService implements IEnvService {
     private EnvDAO envDAO;
 
     @Override
+    public List getAllEnvName() {
+        List<Env> envName = envDAO.selectAllEnv();
+        logger.info("getEnvById envId = {}", envName);
+        return envName;
+    }
+
+    @Override
     public List<EnvDTO> getEnvById(Long envId) {
         logger.info("getEnvById envId = {}", envId);
         return envDAO.selectEnvById(envId);
     }
+
 }

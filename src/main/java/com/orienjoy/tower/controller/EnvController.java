@@ -1,5 +1,6 @@
 package com.orienjoy.tower.controller;
 
+import com.orienjoy.tower.domain.Env;
 import com.orienjoy.tower.dto.EnvDTO;
 import com.orienjoy.tower.service.IEnvService;
 import org.slf4j.Logger;
@@ -20,6 +21,13 @@ public class EnvController {
     private IEnvService envService;
 
     private static Logger logger = LoggerFactory.getLogger(IEnvService.class);
+
+    // 获取所有env名
+    @RequestMapping(value = "/getAllEnv", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public List getAllEnv() throws Exception {
+        return envService.getAllEnvName();
+    }
 
     // 读取env参数
     @RequestMapping(value = "/getEnvById", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")

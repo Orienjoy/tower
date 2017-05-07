@@ -15,7 +15,6 @@
         id, env, host_inner_ip, host_outer_ip, mysql_inner_ip, mysql_outer_ip, mysql_port
     </sql>
 
-    <!-- <include refid="Base_Columan_List"/> -->
     <select id="selectEnvById" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List" />
@@ -23,10 +22,13 @@
         where id = #{envId,jdbcType=BIGINT}
     </select>
 
+    <select id="selectAllEnv" resultType="com.orienjoy.tower.domain.Env">
+        SELECT env FROM env
+    </select>
+
     <insert id="create" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
         insert into env (env, host_inner_ip, host_outer_ip, mysql_inner_ip, mysql_outer_ip, mysql_port)
         values (#{env}, #{hostInnerIp}, #{hostOuterIp}, #{mysqlInnerIp}, #{mysqlOuterIp}, #{mysqlPort})
     </insert>
-
 
 </mapper>
