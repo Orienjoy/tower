@@ -11,8 +11,6 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd ">
 
-	<!-- <context:component-scan base-package="com.alimama.*" /> -->
-
 	<context:component-scan base-package="com.orienjoy.tower.*">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
@@ -23,5 +21,28 @@
 	<task:annotation-driven />
 	<mvc:annotation-driven/>
 	<aop:aspectj-autoproxy />
+
+
+	<!-- 去掉null的字段 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper" ref="objectMapper" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+		<property name="dateFormat">
+			<bean class="java.text.SimpleDateFormat">
+				<constructor-arg>
+					<value>yyyy-MM-dd HH:mm:ss</value>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="serializationInclusion">
+			<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+		</property>
+	</bean>
 
 </beans>
