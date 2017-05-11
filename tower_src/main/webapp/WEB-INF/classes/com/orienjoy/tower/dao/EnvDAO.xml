@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orienjoy.tower.dao.EnvDAO">
+    <resultMap id="BaseResultMap" type="com.orienjoy.tower.domain.Env">
+        <id column="id" property="id"/>
+        <result column="env" property="env"/>
+        <result column="host_inner_ip" property="hostInnerIp"/>
+        <result column="host_outer_ip" property="hostOuterIp"/>
+        <result column="mysql_inner_ip" property="mysqlInnerIp"/>
+        <result column="mysql_outer_ip" property="mysqlOuterIp"/>
+        <result column="mysql_port" property="mysqlPort"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, env, host_inner_ip, host_outer_ip, mysql_inner_ip, mysql_outer_ip, mysql_port
+    </sql>
+
+    <select id="selectEnvById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from env
+        where id = #{envId,jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAllEnv" resultType="com.orienjoy.tower.domain.Env">
+        SELECT env FROM env
+    </select>
+
+    <insert id="create" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into env (env, host_inner_ip, host_outer_ip, mysql_inner_ip, mysql_outer_ip, mysql_port)
+        values (#{env}, #{hostInnerIp}, #{hostOuterIp}, #{mysqlInnerIp}, #{mysqlOuterIp}, #{mysqlPort})
+    </insert>
+
+</mapper>
