@@ -153,6 +153,15 @@
     </dependency>
     <!-- jackson end -->
 
+    <!-- TestNG -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.8</version>
+      <scope>test</scope>
+    </dependency>
+
+
     <!-- junit -->
     <dependency>
       <groupId>junit</groupId>
@@ -176,10 +185,10 @@
 
   <build>
     <finalName>tower</finalName>
-    <outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
+    <outputDirectory>tower_src/main/webapp/WEB-INF/classes</outputDirectory>
     <resources>
       <resource>
-        <directory>src/main/resources</directory>
+        <directory>tower_src/main/resources</directory>
         <filtering>true</filtering>
       </resource>
     </resources>
