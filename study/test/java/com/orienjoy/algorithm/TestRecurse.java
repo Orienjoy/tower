@@ -1,6 +1,6 @@
 package com.orienjoy.algorithm;
 
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 /**
  * Created by Administrator on 2017/5/11.
