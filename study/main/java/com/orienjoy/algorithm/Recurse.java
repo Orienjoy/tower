@@ -1,7 +1,7 @@
 package com.orienjoy.algorithm;
 
 /**
- * Created by orienjoy on 2017/5/11.
+ * Created by Orienjoy on 2017/5/11.
  */
 public class Recurse {
     int recurse_sum(int m){

@@ -3,7 +3,7 @@ package com.orienjoy.algorithm;
 import org.testng.annotations.Test;
 
 /**
- * Created by Administrator on 2017/5/11.
+ * Created by Orienjoy on 2017/5/11.
  */
 public class TestRecurse {
     @Test
